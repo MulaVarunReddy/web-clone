@@ -1,0 +1,139 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Background image */
+.bg-image {
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f562aaf4-5dbb-4603-a32b-6ef6c2230136/dh0w8qv-9d8ee6b2-b41a-4681-ab9b-8a227560dc75.jpg/v1/fill/w_1280,h_720,q_75,strp/the_netflix_login_background__canada__2024___by_logofeveryt_dh0w8qv-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvZjU2MmFhZjQtNWRiYi00NjAzLWEzMmItNmVmNmMyMjMwMTM2XC9kaDB3OHF2LTlkOGVlNmIyLWI0MWEtNDY4MS1hYjliLThhMjI3NTYwZGM3NS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.LOYKSxIDqfPwWHR0SSJ-ugGQ6bECF0yO6Cmc0F26CQs'); /* Replace with a high-res Netflix background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Behind everything */
+}
+
+/* Dark overlay for readability */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+  z-index: -1; /* Above background, below content */
+}
+
+/* Header and Logo */
+.netflix-header {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  z-index: 10; /* Ensure it's above the overlay */
+}
+
+.netflix-logo {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+}
+
+/* Login Form Container */
+.login-container {
+  background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent dark background */
+  max-width: 450px; /* Standard Netflix login form width */
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1; /* Above background and overlay */
+}
+
+/* Form Input Styling */
+.form-control-lg {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #333; /* Match background for seamless look */
+  height: 50px; /* Standard height */
+  padding: 1rem; /* Adjust padding */
+}
+
+.form-control-lg::placeholder {
+  color: #8c8c8c; /* Placeholder color */
+}
+
+.form-control-lg:focus {
+  background-color: #454545; /* Slightly lighter on focus */
+  color: #fff;
+  border-color: #007bff; /* Bootstrap blue or custom */
+  box-shadow: none; /* Remove default Bootstrap shadow */
+}
+
+/* Sign In Button */
+.btn-danger {
+  background-color: #e50914; /* Netflix red */
+  border-color: #e50914;
+  font-weight: bold;
+  height: 50px;
+  font-size: 1.25rem;
+}
+
+.btn-danger:hover {
+  background-color: #f40612; /* Slightly darker red on hover */
+  border-color: #f40612;
+}
+
+/* Checkbox and Help link */
+.form-check-input {
+  background-color: #737373; /* Grey background for checkbox */
+  border: none;
+}
+
+.form-check-input:checked {
+  background-color: #e50914; /* Red when checked */
+  border-color: #e50914;
+}
+
+/* Text sizing for small text */
+.text-small {
+  font-size: 0.8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-container {
+      padding: 30px !important; /* Smaller padding on small screens */
+      max-width: 90%; /* Take up more width */
+  }
+
+  .netflix-header {
+      top: 15px;
+      left: 20px;
+  }
+
+  .netflix-logo {
+      width: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .d-flex.min-vh-100 {
+      padding-top: 100px; /* Push content down to avoid header overlap */
+      align-items: flex-start !important; /* Align to top on small screens */
+  }
+
+  .login-container {
+      border-radius: 0 !important; /* Full width, no rounded corners on very small screens */
+      min-height: 100vh; /* Take full height on very small screens */
+      padding: 20px !important;
+  }
+
+  .bg-image, .overlay {
+      position: absolute; /* Change to absolute to avoid fixed header overlap */
+      height: auto;
+      min-height: 100vh;
+  }
+}
